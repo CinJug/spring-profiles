@@ -92,6 +92,8 @@ end //
 delimiter ;
 
 
+drop procedure if exists quarantined_springdemo.copy_event;
+
 delimiter //
 create procedure quarantined_springdemo.copy_event (in real_event_id int(11))
 begin
@@ -106,10 +108,8 @@ begin
 	start transaction;
 		open cur;
 
-		repeat
-			fetch cur into tempCustId, tempEventType;
-			insert into quarantined_springdemo.customer_event (customer_id, event_type, status) values (tempCustId, tempEventType, 'incomplete');
-		until done = 1 end repeat;
+		fetch cur into tempCustId, tempEventType;
+		insert into quarantined_springdemo.customer_event (customer_id, event_type, status) values (tempCustId, tempEventType, 'incomplete');
 		close cur;
 
 		select * from quarantined_springdemo.customer_event where event_id = last_insert_id();
