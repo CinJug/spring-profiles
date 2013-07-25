@@ -2,8 +2,6 @@ package trey.model;
 
 public class Event {
 
-	// private static final String DELIMITER = ",";
-
 	public static enum EventType {
 		name, address;
 	}
@@ -52,25 +50,9 @@ public class Event {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("CustomerEvent [eventId=").append(eventId).append(", customerId=").append(customerId)
+		builder.append("Event [eventId=").append(eventId).append(", customerId=").append(customerId)
 				.append(", eventType=").append(eventType).append("]");
 		return builder.toString();
 	}
-
-	// public static String marshal(CustomerEvent event) {
-	// StringBuilder sb = new StringBuilder(256);
-	// sb.append(event.getEventId()).append(",").append(event.getCustomerId()).append(",")
-	// .append(event.getEventType().name());
-	// return sb.toString();
-	// }
-	//
-	// public static CustomerEvent marshal(String text) {
-	// String[] tokens = text.split(DELIMITER);
-	// CustomerEvent event = new CustomerEvent();
-	// event.setEventId(Long.valueOf(tokens[0]));
-	// event.setCustomerId(Long.valueOf(tokens[1]));
-	// event.setEventType(EventType.valueOf(tokens[2]));
-	// return event;
-	// }
 
 }

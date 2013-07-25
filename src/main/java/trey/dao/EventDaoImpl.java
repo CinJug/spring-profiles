@@ -21,18 +21,18 @@ public class EventDaoImpl extends JdbcDaoSupport implements EventDao {
 
 	public Event getEventById(long eventId) {
 		return getJdbcTemplate().queryForObject("select * from customer_event where event_id = ?",
-				new Object[] { eventId }, new CustomerEventRowMapper());
+				new Object[] { eventId }, new EventRowMapper());
 	}
 
 	public Event getNextEvent() {
 		try {
-			return getJdbcTemplate().queryForObject("call next_customer_event", new CustomerEventRowMapper());
+			return getJdbcTemplate().queryForObject("call next_customer_event", new EventRowMapper());
 		} catch (IncorrectResultSizeDataAccessException e) {
 			return null;
 		}
 	}
 
-	private static class CustomerEventRowMapper implements RowMapper<Event> {
+	private static class EventRowMapper implements RowMapper<Event> {
 		public Event mapRow(ResultSet res, int rowNum) throws SQLException {
 			Event event = new Event();
 			event.setEventId(res.getLong("event_id"));

@@ -31,7 +31,7 @@ public class EventServiceImpl implements EventService {
 
 				public Message createMessage(Session session) throws JMSException {
 					TextMessage message = session.createTextMessage(String.valueOf(event.getEventId()));
-					LOG.info("Sending message for CustomerEvent: " + event);
+					LOG.info("Sending message for Event: " + event);
 					return message;
 				}
 			});
