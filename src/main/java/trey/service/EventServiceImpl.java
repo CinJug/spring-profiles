@@ -40,7 +40,7 @@ public class EventServiceImpl implements EventService {
 
 	public Event completePendingEvent() {
 		String text = (String) jmsTemplate.receiveAndConvert(processingQueue);
-		LOG.info("Received message: " + text);
+		LOG.info("Received eventId: " + text);
 		long eventId = Long.valueOf(text);
 		Event event = eventDao.markEventComplete(eventId);
 

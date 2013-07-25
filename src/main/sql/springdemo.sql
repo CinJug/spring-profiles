@@ -5,7 +5,7 @@ insert into customer (first_name, last_name, zip) values ('Jane', 'Smith', '6789
 insert into customer_event (customer_id, event_type) values (1, 'name');
 insert into customer_event (customer_id, event_type) values (2, 'address');
 
-select * from customer_event order by event_id;
+select * from customer_event order by event_id desc;
 select * from customer cust inner join customer_event event on cust.customer_id = event.event_id order by cust.customer_id, event.event_id;
 
 -- quarantine
