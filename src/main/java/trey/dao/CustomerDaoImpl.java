@@ -11,7 +11,7 @@ import trey.model.Customer;
 
 public class CustomerDaoImpl extends JdbcDaoSupport implements CustomerDao {
 
-	public Customer getCustomerById(long id) {
+	public Customer getCustomerById(long custId) {
 		try {
 			return getJdbcTemplate().queryForObject("select * from customer", new CustomerRowMapper());
 		} catch (IncorrectResultSizeDataAccessException e) {
@@ -31,7 +31,7 @@ public class CustomerDaoImpl extends JdbcDaoSupport implements CustomerDao {
 	private static class CustomerRowMapper implements RowMapper<Customer> {
 		public Customer mapRow(ResultSet res, int rowNum) throws SQLException {
 			Customer cust = new Customer();
-			cust.setCustomerId(res.getLong("id"));
+			cust.setCustomerId(res.getLong("customer_id"));
 			cust.setFirstName(res.getString("first_name"));
 			cust.setLastName(res.getString("last_name"));
 			cust.setZip(res.getString("zip"));
