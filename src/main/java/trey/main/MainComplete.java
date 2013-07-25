@@ -15,6 +15,8 @@ public class MainComplete {
 
 		if (context.containsBean("quarantinedDataSource")) {
 			LOG.info("Using quarantinedDataSource");
+		} else {
+			LOG.info("Using normal dataSource");
 		}
 
 		EventService service = context.getBean(EventService.class);
