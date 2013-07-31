@@ -11,8 +11,17 @@ When running MainStart or MainComplete provide the 'spring.profiles.active=[work
 
 I did not define an assembly for this project so you'll need to execute the Main classes in an IDE. In Eclipse you can do this by:
 1. Open MainStart.java in Eclipse
-2. Open menu: Run > Run Configurations
-3. Click on the Arguments tab (just below Name)
-4. In the VM arguments text area put this: -Dspring.profiles.active=workstation
+1. Open menu: Run > Run Configurations
+1. Click on the Arguments tab (just below Name)
+1. In the VM arguments text area put this: -Dspring.profiles.active=workstation
 `Be careful to put this in the VM arguments (bottom) not the Program arguments (top)`
-5. Click Run
+1. Click Run
+
+ActiveMQ Installation
+---
+1. Download ActiveMQ here: http://activemq.apache.org/download.html
+1. Unzip to desired location
+1. Run bin/activemq.bat or activemq.sh as appropriate
+1. Enjoy!
+
+That's it! No configuration necessary. By default queues will be lazy created as needed. You can browse queues in the ActiveMQ admin console at http://localhost:8161 with username=admin and password=admin
